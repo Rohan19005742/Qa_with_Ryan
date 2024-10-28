@@ -2,11 +2,29 @@ package mypackage;
  
 public class Main {
     public static void main(String[] args) {
-        MyClass person1 = new MyClass("Alice");
-        MyClass person2 = new MyClass("Bob", 25);
+        // Using abstract class with polymorphism
+        Person[] people = {
+            new Student("Alice"),
+            new Teacher("Bob")
+        };
  
-        System.out.println(person1);
-        System.out.println(person2);
-        System.out.println("Instance Count: " + MyClass.getInstanceCount());
+        System.out.println("Abstract Class Polymorphism:");
+        for (Person person : people) {
+            System.out.println(person);
+            person.displayRole();
+            System.out.println();
+        }
+ 
+        // Using interface with polymorphism
+        Workable[] workers = {
+            new Doctor(),
+            new Engineer()
+        };
+ 
+        System.out.println("Interface Polymorphism:");
+        for (Workable worker : workers) {
+            worker.work();
+            System.out.println();
+        }
     }
 }
